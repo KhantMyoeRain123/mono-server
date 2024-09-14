@@ -1,0 +1,17 @@
+{
+  "name": "mono-http",
+  "version": "1.0.0",
+  "description": "http server for mono chat app",
+  "main": "app.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Khant Myoe Rain",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.0",
+    "pg": "^8.12.0",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.37.3"
+  }
+}
