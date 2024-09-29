@@ -3,7 +3,7 @@ const sequelize = require("./database/database");
 const app = express();
 const session = require("express-session");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
-
+const checkLoggedIn=require("./utils/check-loggedin");
 app.use(express.json());
 app.use(
   session({
@@ -20,14 +20,14 @@ app.use(
 
 //routes
 const authRoutes = require("./routes/auth");
-const roomRoutes = require("./routes/room");
+const roomsRoutes = require("./routes/rooms");
 const userRoutes = require("./routes/user");
 app.use("/", authRoutes);
-app.use("/rooms", roomRoutes);
-app.use("/users", userRoutes);
-app.get("/", function (req, res) {
-  res.send("Hello!");
-});
+
+app.use(checkLoggedIn);//the routes below only work if the user is logged in
+app.use("/rooms", roomsRoutes);
+app.use("/user", userRoutes);
+
 
 sequelize
   .authenticate()
