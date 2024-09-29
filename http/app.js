@@ -33,7 +33,7 @@ sequelize
   .authenticate()
   .then(() => {
     console.log("Connection has been established successfully.");
-    return sequelize.sync({ force: true }); // Use { alter: true } to update existing tables or { force: true } to recreate them
+    return sequelize.sync(); // Use { alter: true } to update existing tables or { force: true } to recreate theme
   })
   .then(() => {
     console.log("Models synchronized successfully.");

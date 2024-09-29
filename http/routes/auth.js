@@ -3,7 +3,7 @@ const router = express.Router();
 const {User} = require("../models");
 const { hashPassword, verifyPassword } = require("../utils/hash-password");
 const userSchema=require("../schemas/user-schema");
-
+//todo:make sure the usernames are unique
 router.post("/signup", async function (req, res) {
   const { error, value } = userSchema.validate(req.body);
   if(error){
